@@ -1,8 +1,5 @@
 FROM centos:7
-MAINTAINER Satoshi <xxxx@gmail.com>
-
-#RUN時の実行引数
-#CMD /bin/bash
+MAINTAINER Satoshi <satoshi.hiranoz@gmail.com>
 
 RUN echo 'epelリポジトリをインストール'
 RUN yum install -y epel-release
@@ -41,22 +38,6 @@ RUN echo $project_name'プロジェクト作成'; \
 	npm install; \
 	sed -i -e "2i require('coffee-script/register');" bin/www;
 
-RUN echo 'RUN時に起動'
-CMD cd /var/$project_name && npm start
+#RUN echo 'RUN時に起動'
+#CMD cd /var/$project_name && npm start
 RUN echo '終了'
-
-
-
-#RUN express /var/myApp
-#RUN cd /var/myApp
-#RUN echo 'coffeescriptに変換'
-#RUN find /var/myApp -type f -name "*.js" | while read f; do js2coffee "$f" > "${f%.*}.coffee"; done
-#RUN find /var/myApp -type f -name "*.js" | xargs rm -f
-#RUN echo 'package.jsonにcoffeescirpt追加'
-#RUN npm install coffee-script --save
-#RUN echo '依存モージュルインストール'
-#RUN npm install
-
-
-#RUN if test ${project_name} != 'no'; then \
-#	fi
