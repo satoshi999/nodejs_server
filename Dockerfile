@@ -1,5 +1,5 @@
 FROM centos:7
-MAINTAINER Satoshi <xxxx@gmail.com>
+MAINTAINER Satoshi <satoshi.hiranoz@gmail.com>
 
 RUN echo 'epelリポジトリをインストール'
 RUN yum install -y epel-release
