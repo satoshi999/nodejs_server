@@ -1,4 +1,5 @@
 FROM satoshizzz/centos-ssh:latest
+#FROM centos:latest
 MAINTAINER Satoshi <xxxx@gmail.com>
 
 RUN echo 'epelリポジトリをインストール'
@@ -34,8 +35,8 @@ RUN echo $project_name'プロジェクト作成'; \
 	npm install; \
 	sed -i -e "2i require('coffee-script/register');" bin/www;
 
-#RUN echo 'RUN時に起動'
-RUN echo 'RUN時のコマンドに以下を指定する'
-RUN echo "/bin/sh -c 'cd /var/$project_name && npm start && /usr/sbin/sshd -D'"
-#CMD cd /var/$project_name && npm start && /usr/sbin/sshd -D
+RUN echo 'RUN時に起動'
+#RUN echo 'RUN時のコマンドに以下を指定する'
+#RUN echo "/bin/sh -c 'cd /var/$project_name && npm start && /usr/sbin/sshd -D'"
+CMD /usr/sbin/sshd -D && cd /var/$project_name && npm start
 RUN echo '終了'
