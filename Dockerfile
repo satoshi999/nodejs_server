@@ -35,5 +35,5 @@ RUN echo $project_name'プロジェクト作成'; \
 	sed -i -e "2i require('coffee-script/register');" bin/www;
 
 RUN echo 'RUN時に起動'
-CMD cd /var/$project_name && npm start
+CMD cd /var/$project_name && npm start && /usr/sbin/sshd -D
 RUN echo '終了'
