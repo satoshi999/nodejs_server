@@ -41,6 +41,6 @@ RUN echo $project_name'プロジェクト作成'; \
 RUN echo 'RUN時に起動'
 #RUN echo 'RUN時のコマンドに以下を指定する'
 #CMD /usr/sbin/sshd && forever start /var/$project_name/bin/www
-CMD /usr/sbin/sshd && cd /var/$project_name && nuhup npm start
+CMD /usr/sbin/sshd && cd /var/$project_name && nohup npm start
 
 RUN echo '終了'
