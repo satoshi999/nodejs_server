@@ -21,8 +21,8 @@ RUN echo 'expressインストール'
 RUN npm install -g express
 RUN npm install -g express-generator
 
-RUN echo 'foreverインストール'
-RUN npm install -g forever
+#RUN echo 'foreverインストール'
+#RUN npm install -g forever
 
 ENV project_name=${project_name:-'myApp'}
 RUN echo $project_name'プロジェクト作成'; \
@@ -40,8 +40,7 @@ RUN echo $project_name'プロジェクト作成'; \
 
 RUN echo 'RUN時に起動'
 #RUN echo 'RUN時のコマンドに以下を指定する'
-#RUN echo "/bin/sh -c 'cd /var/$project_name && npm start && /usr/sbin/sshd -D'"
-CMD /usr/sbin/sshd && forever start /var/$project_name/bin/www
-#CMD /usr/sbin/sshd && cd /var/$project_name && npm start
+#CMD /usr/sbin/sshd && forever start /var/$project_name/bin/www
+CMD /usr/sbin/sshd && cd /var/$project_name && nuhup npm start
 
 RUN echo '終了'
