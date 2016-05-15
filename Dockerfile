@@ -1,4 +1,4 @@
-FROM centos:7
+FROM satoshizzz/centos-ssh:latest
 MAINTAINER Satoshi <xxxx@gmail.com>
 
 RUN echo 'epelリポジトリをインストール'
